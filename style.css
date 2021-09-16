@@ -1,0 +1,162 @@
+@import url(reset.css);
+body {
+    font-family: 'Helvetica';
+    display: flex;
+    flex-direction: column;
+}
+.app {
+    display:inline-flex;
+    gap: 2px;
+    /*border: 2px solid black;*/
+    /*padding: 10px;*/
+    align-content: flex-start;
+    align-items: flex-start;
+    align-items: stretch;
+    margin-left: auto;
+    margin-right: auto;
+    /*border-radius: 5px;*/
+}
+.menu-main, .menu-notes, .menu-note {
+    display: flex;
+    flex-direction: column;
+    width: 298px;
+    border: 1px solid #000000;
+    padding: 10px;
+    background-color: #55968a;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 4px 0 rgba(58, 58, 58, 0.5);
+    border-radius: 5px;
+    min-height: calc(100vh - 22px);
+}
+.form {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    height: 40px;
+}
+.form-name, .note-heading, .form-search, .note-name, .note-form {
+
+    box-shadow: 0 4px 4px 0 rgba(58, 58, 58, 0.5);
+    border-radius: 16px;
+    border: 2px solid transparent;
+    font-weight: 500;
+    font-size: 18px;
+    text-shadow: #818181 2px 1px 5px;
+}
+.form-name:focus, .note-form:focus, .form-search:focus, .note-name:focus, note-form:focus {
+    border: 2px solid rgb(5, 97, 119);
+}
+.form-name:hover, .note-form:hover, .form-search:hover, .note-name:hover, note-form:hover {
+    border: 2px solid rgb(17, 196, 236);
+}
+/*.form-name:active {*/
+/*    border: 2px solid rgb(201, 25, 25);*/
+/*}*/
+.form-add {
+    box-shadow: 0 4px 4px 0 rgba(58, 58, 58, 0.5);
+    text-transform: uppercase;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    font-weight: 700;
+    text-shadow: #818181 2px 1px 5px;
+}
+.form-add:focus {
+    border: 2px solid rgb(5, 97, 119);
+}
+.form-add:hover {
+    border: 2px solid rgb(17, 196, 236);
+}
+.form-add:active {
+    border: 2px solid rgb(201, 25, 25);
+}
+.content-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 24px;
+}
+.content-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 4px 0 rgba(58, 58, 58, 0.5);
+    position: relative;
+}
+.content-item-name {
+    font-weight: 500;
+    font-size: 20px;
+    color: whitesmoke;
+    text-align: left;
+    padding-right: 6px;
+    padding-right: 80px;
+    flex-grow: 1;
+    text-shadow: #818181 2px 1px 5px;
+    justify-content: flex-start;
+    border: 2px solid transparent;
+    background-color: transparent;
+    height: 44px;
+    background-image: url("img/open-off.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: auto 100%;
+}
+.content-item-name-active {
+    background-image: url("img/open-on.svg");
+}
+.content-item-name:focus {
+    border: 2px solid rgb(5, 97, 119);
+}
+.content-item-name:hover {
+    border: 2px solid rgb(17, 196, 236);
+}
+.content-item-name:active {
+    border: 2px solid rgb(201, 25, 25);
+}
+.delete {
+    background: transparent;
+    width: 36px;
+    height: 36px;
+    background-size: cover;
+    position: absolute;
+    background-image: url("img/delete.svg");
+    right: 45px;
+    border: 2px solid transparent;
+}
+.delete:focus {
+    border: 2px solid rgb(5, 97, 119);
+}
+.delete:hover {
+    border: 2px solid rgb(17, 196, 236);
+}
+.delete:active {
+    border: 2px solid rgb(201, 25, 25);
+}
+/*.note {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+/*.note-heading {*/
+/*    font-weight: 500;*/
+/*    font-size: 20px;*/
+/*    background-color: white;*/
+/*    padding: 10px 6px;*/
+/*    text-align: center;*/
+/*}*/
+/*.note-heading {*/
+/*    flex-grow: 0;*/
+/*}*/
+.search {
+    margin-top: 10px;
+}
+.form-search {
+    flex-grow: 1;
+}
+.note-name {
+    height: 34px;
+    text-align: center;
+}
+.note-form {
+    flex-grow: 1;
+    margin-top: 20px;
+}
