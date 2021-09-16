@@ -160,3 +160,13 @@ body {
     flex-grow: 1;
     margin-top: 20px;
 }
+
+.menu-main {
+    /*display: none;*/
+}
+.menu-notes {
+    display: none;
+}
+.menu-note {
+    display: none;
+}
