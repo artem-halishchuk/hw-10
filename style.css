@@ -19,7 +19,8 @@ body {
 .menu-main, .menu-notes, .menu-note {
     display: flex;
     flex-direction: column;
-    width: 298px;
+    /*width: 298px;*/
+    width: 100%;
     border: 1px solid #000000;
     padding: 10px;
     background-color: #55968a;
@@ -169,8 +170,8 @@ body {
     /*display: none;*/
 }
 .menu-notes {
-    display: none;
+    /*display: none;*/
 }
 .menu-note {
-    display: none;
+    /*display: none;*/
 }
