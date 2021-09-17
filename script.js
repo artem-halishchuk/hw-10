@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
             li.dataset.index = this.index;
             return li;
         }
-
     }
 
     class SearchForm {
@@ -100,18 +99,6 @@ document.addEventListener("DOMContentLoaded", function() {
     contentListUsers.createContentList();
 
 
-    //получение menu-notes
-    let getNotesMenu = document.querySelector('.menu-notes');
-    //создание формы
-    let formAddNote = new FormAdd(getNotesMenu);
-    formAddNote.createForm();
-    //создание search
-    let searchForm = new SearchForm(getNotesMenu);
-    searchForm.createSearch();
-    //создание ul для списка
-    let contentListNotes = new ContentList(getNotesMenu);
-    contentListNotes.createContentList();
-
     //получение menu-note
     let getMenuNote = document.querySelector('.menu-note');
     // создание noteName
@@ -150,38 +137,99 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         users.push(new User(name.value));
         name.value = null;
-        console.log(users);
         showUsers(users);
     };
+    //изменение активного юзера
+    let activeUser;
+    let activeUserIndex;
+    click.addEventListener('click', ()=> changesActiveUser(event));
+    function changesActiveUser(event) {
+        if (!event.target.matches('.content-item-name')) return;
+        let contentList = document.querySelector('.menu-main .content-list');
+        contentList.childNodes.forEach(e => {
+            e.firstChild.classList.remove('content-item-name-active');
+        });
+        event.target.classList.add('content-item-name-active');
+        activeUserIndex = event.target.parentNode.dataset.index;
+        activeUser = users[activeUserIndex];
+        console.log(activeUser);
+        showNotes(activeUserIndex);
+    }
+
     //создание note
     click.addEventListener('click', ()=> addNote(event, 0));
-    function addNote (event, i) {
+    function addNote (event, activeUser) {
         if (!event.target.matches('.menu-notes .form-add')) return;
         let name = document.querySelector('.menu-notes .form-name');
         if (name.value.trim() === '') {
             alert('Entered name');
             return;
         }
-        users[i].notes.push(new Note(name.value));
+        users[activeUser].notes.push(new Note(name.value));
         name.value = null;
-        console.log(users[i].notes);
+        //showNotes(activeUserIndex);
     };
 
+    //добавление изеров в список меню main
     let contentListMain = document.querySelector('.menu-main .content-list');
     function showUsers(users) {
         contentListMain.innerHTML = '';
         let userItem = users.map((element, index) =>
             new ContentItem(contentListMain, element.name, index).createContentItem());
         contentListMain.append(...userItem);
-        console.log(activeUser);
+        if (activeUserIndex) {
+            contentListMain.childNodes[activeUserIndex].firstChild.classList.add('content-item-name-active');
+        }
+
     };
 
-    let activeUser;
-    click.addEventListener('click', ()=> {
-        if (!event.target.matches('.menu-main .content-item-name')) return;
-        let index = event.target.parentNode.dataset.index;
-        activeUser = users[index];
-    });
+    //добавление заметок в список меню notes
+
+    function showNotes(notes) {
+        let contentListNotes = document.querySelector('.menu-notes .content-list');
+        contentListNotes.innerHTML = '';
+        let noteItem = notes.map((element, index) =>
+            new ContentItem(contentListNotes, element.name, index).createContentItem());
+        contentListNotes.append(...noteItem);
+        // if (activeUserIndex) {
+        //     contentListMain.childNodes[activeUserIndex].firstChild.classList.add('content-item-name-active');
+        // }
+
+    };
+
+    //отображение заметок
+    //click.addEventListener('click', ()=> showNotes(event, 0));
+    function showNotes(activeUserIndex) {
+        if (!activeUserIndex) return;
+        let menuNotes = document.querySelector('.menu-notes');
+        menuNotes.style.display = 'block';
+        menuNotes.innerHTML = '';
+        //получение menu-notes
+        let getNotesMenu = document.querySelector('.menu-notes');
+        //создание формы
+        let formAddNote = new FormAdd(getNotesMenu);
+        formAddNote.createForm();
+        //создание search
+        let searchForm = new SearchForm(getNotesMenu);
+        searchForm.createSearch();
+        //создание ul для списка
+        let contentListNotes = new ContentList(getNotesMenu);
+        contentListNotes.createContentList();
+
+
+        let contentListNotes1 = document.querySelector('.menu-notes .content-list');
+        contentListNotes1.innerHTML = '';
+        let noteItem = users[activeUser].notes.map((element, index) =>
+            new ContentItem(contentListNotes, element.name, index).createContentItem());
+        contentListNotes1.append(...noteItem);
+    }
+
+
+    // click.addEventListener('click', ()=> {
+    //     if (!event.target.matches('.menu-main .content-item-name')) return;
+    //     let index = event.target.parentNode.dataset.index;
+    //     activeUser = users[index];
+    // });
 
 
 })
