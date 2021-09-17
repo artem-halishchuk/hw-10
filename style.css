@@ -7,8 +7,6 @@ body {
 .app {
     display:inline-flex;
     gap: 2px;
-    /*border: 2px solid black;*/
-    /*padding: 10px;*/
     align-content: flex-start;
     align-items: flex-start;
     align-items: stretch;
@@ -47,7 +45,7 @@ body {
     width: 100%;
 }
 .form-name:focus, .note-form:focus, .form-search:focus, .note-name:focus, note-form:focus {
-    border: 2px solid rgb(5, 97, 119);
+    border: 2px solid rgb(171, 101, 9);
 }
 .form-name:hover, .note-form:hover, .form-search:hover, .note-name:hover, note-form:hover {
     border: 2px solid rgb(17, 196, 236);
@@ -64,7 +62,7 @@ body {
     text-shadow: #818181 2px 1px 5px;
 }
 .form-add:focus {
-    border: 2px solid rgb(5, 97, 119);
+    border: 2px solid rgb(171, 101, 9);
 }
 .form-add:hover {
     border: 2px solid rgb(17, 196, 236);
@@ -103,11 +101,12 @@ body {
     background-position: right;
     background-size: auto 100%;
 }
+/*если активный item*/
 .content-item-name-active {
     background-image: url("img/open-on.svg");
 }
 .content-item-name:focus {
-    border: 2px solid rgb(5, 97, 119);
+    border: 2px solid rgb(171, 101, 9);
 }
 .content-item-name:hover {
     border: 2px solid rgb(17, 196, 236);
@@ -126,7 +125,7 @@ body {
     border: 2px solid transparent;
 }
 .delete:focus {
-    border: 2px solid rgb(5, 97, 119);
+    border: 2px solid rgb(171, 101, 9);
 }
 .delete:hover {
     border: 2px solid rgb(17, 196, 236);
@@ -134,20 +133,6 @@ body {
 .delete:active {
     border: 2px solid rgb(201, 25, 25);
 }
-/*.note {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*}*/
-/*.note-heading {*/
-/*    font-weight: 500;*/
-/*    font-size: 20px;*/
-/*    background-color: white;*/
-/*    padding: 10px 6px;*/
-/*    text-align: center;*/
-/*}*/
-/*.note-heading {*/
-/*    flex-grow: 0;*/
-/*}*/
 .search {
     margin-top: 10px;
 }
