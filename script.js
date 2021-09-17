@@ -1,3 +1,4 @@
+//https://artem-halishchuk.github.io/hw-10/index.html
 document.addEventListener("DOMContentLoaded", function() {
     class FormAdd {
         constructor(blockInsert) {
